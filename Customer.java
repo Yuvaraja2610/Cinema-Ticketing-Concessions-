@@ -1,21 +1,24 @@
 package JavaAssign;
 
-public class Customer extends Person {
+public class Customer {
+    private int id;
+    private String name;
     private String phone;
 
     public Customer(int id, String name, String phone) {
-        super(id, name);
-        setPhone(phone);
-    }
-
-    public String getPhone() { return phone; }
-    public void setPhone(String phone) {
-        if (phone == null || !phone.matches("\\d{7,15}")) throw new IllegalArgumentException("Phone must be 7-15 digits");
+        this.id = id;
+        this.name = name;
         this.phone = phone;
     }
 
-    @Override
-    public String toString() {
-        return String.format("%d - %s (%s)", getId(), getName(), getPhone());
+    public Integer getId() { return id; }
+    public String getName() { return name; }
+    public String getPhone() { return phone; }
+
+    public void displayInfo() {
+        System.out.println("Customer ID: " + id);
+        System.out.println("Name: " + name);
+        System.out.println("Phone: " + phone);
     }
 }
+
